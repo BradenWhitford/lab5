@@ -79,7 +79,7 @@ class ClientApp(FlaskView):
             print(error)
 
     def _enabled_disable_system(self, enable):
-        mqtt_topic = "FWH/2311/Micro850-2.ie.ncsu.edu/SystemCommand"
+        mqtt_topic = "FWH/2311/Micro850-12.ie.ncsu.edu/SystemCommand"
         dataObj={}
         dataObj["enable system"] = enable
         jsondata = json.dumps(dataObj)
@@ -87,7 +87,7 @@ class ClientApp(FlaskView):
         print ("Controller: ", enable)
 
     def _queryDB(self):
-        qCmd = """SELECT t.* FROM public.sensor_data t LIMIT 100 """
+        qCmd = """SELECT t.* FROM public.lab5 t LIMIT 100 """
         df = pd.read_sql_query(qCmd, self.db_client) # read the query into a pandas dataframe
         print(df) # print the dataframe
         # Now that we have the data as a dataframe, we can manipulate it as needed
@@ -96,7 +96,7 @@ class ClientApp(FlaskView):
 
 # mqtt_host = "10.155.14.88" Can be used for local testing        
 mqtt_host = "test.mosquitto.org"
-db_host = "postgresql://sm_postgres_db_l308_user:WTxo76idwPTZ9z2oQnVJPDjDOct2YJv3@dpg-crvg1olds78s73emer6g-a.ohio-postgres.render.com/sm_postgres_db_l308"
+db_host = "postgresql://sm_postgres_db_lab4:XonuZGLOvvvsAOprfvBC9QRDDinHRSbh@dpg-cs41825svqrc73c9nhig-a.ohio-postgres.render.com/sm_postgres_lab4"
 
 app_client = ClientApp(mqtt_host, db_host)
 ClientApp.register(app) # Register the class with the app
