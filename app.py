@@ -88,7 +88,7 @@ class ClientApp(FlaskView):
         print ("Controller: ", enable)
 
     def _queryDB(self):
-        qCmd = """SELECT t.* FROM public."lab5" t LIMIT 100 """
+        qCmd = """SELECT t.* FROM public."sensor_data" t LIMIT 100 """
         df = pd.read_sql_query(qCmd, self.db_client) # read the query into a pandas dataframe
         print(df) # print the dataframe
         # Now that we have the data as a dataframe, we can manipulate it as needed
