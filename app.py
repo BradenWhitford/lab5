@@ -95,7 +95,7 @@ class ClientApp(FlaskView):
         return df
 
 # mqtt_host = "10.155.14.88" Can be used for local testing        
-mqtt_host = "test.mosquitto.org"
+mqtt_host = "10.155.14.88"
 db_host = "postgresql://sm_postgres_db_lab4:XonuZGLOvvvsAOprfvBC9QRDDinHRSbh@dpg-cs41825svqrc73c9nhig-a.ohio-postgres.render.com/sm_postgres_lab4"
 
 app_client = ClientApp(mqtt_host, db_host)
